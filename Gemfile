@@ -76,3 +76,6 @@ end
 
 # Devise gem for authentication
 gem "devise", "~> 4.8"
+
+# letter_opener gem for email testing
+gem "letter_opener", group: :development

@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   # Associations
   has_many :newsletters
+  has_and_belongs_to_many :newsletters
 
   # Validations
   validates :first_name, presence: true

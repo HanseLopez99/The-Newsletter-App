@@ -5,5 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable
 
+  # Associations
   has_many :newsletters
+
+  # Validations
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end

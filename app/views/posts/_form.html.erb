@@ -17,15 +17,8 @@
   </div>
 
   <div>
-    <%= form.label :likes, style: "display: block" %>
-    <%= form.number_field :likes %>
-  </div>
-
-  <div>
     <%= form.label :newsletter_id, style: "display: block" %>
-    <%= form.text_field :newsletter_id %>
-  </div>
-
+    <%= form.select :newsletter_id, @newsletters.map { |n| [n.name, n.id] } %>
   <div>
     <%= form.submit %>
   </div>

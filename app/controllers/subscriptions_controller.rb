@@ -3,7 +3,8 @@ class SubscriptionsController < ApplicationController
 
   # GET /subscriptions or /subscriptions.json
   def index
-    @subscriptions = Subscription.all
+    # Get the newsletters which the current user is subscribed to
+    @subscriptions = Subscription.joins(:newsletter).where(newsletters: { user_id: current_user.id }).select(:id, :newsletter_id, :user_id, :name)
   end
 
   # GET /subscriptions/1 or /subscriptions/1.json

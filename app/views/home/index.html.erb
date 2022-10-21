@@ -1,5 +1,3 @@
-<h1>The Newsletter APP!!</h1>
-
 <div>
   <br>
   <%= link_to "My Newsletters", newsletters_path %>
@@ -12,3 +10,10 @@
   <br>
   <%= link_to "Create a Post", new_post_path %>
 </div>
+<h2> Posts from newsletters you may be interested in </h2>
+<% @posts.each do |post| %> 
+  <div>
+    <br>
+    <%= link_to post.description, post_path(post) %>
+  </div>
+<% end %>

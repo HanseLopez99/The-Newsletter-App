@@ -3,7 +3,8 @@ class NewslettersController < ApplicationController
 
   # GET /newsletters or /newsletters.json
   def index
-    @newsletters = Newsletter.all
+    # Get the newsletters from the current user
+    @newsletters = Newsletter.where(user_id: current_user.id)
   end
 
   # GET /newsletters/1 or /newsletters/1.json

@@ -1,12 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Newsletters</h1>
 
 <div id="newsletters">
   <% @newsletters.each do |newsletter| %>
-    <%= render newsletter %>
     <p>
-      <%= link_to "Show this newsletter", newsletter %>
+      <%= link_to newsletter.name, newsletter %>
     </p>
   <% end %>
 </div>

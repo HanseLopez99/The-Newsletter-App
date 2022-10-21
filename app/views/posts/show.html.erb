@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
       <br>
-      <%= button_to "Subscribe to this newsletter", new_subscription_path %>
+      <%= button_to "Subscribe to this newsletter", precreated_subscription_path(@newsletter.id), method: :post %>
       <br>
 
       <div>

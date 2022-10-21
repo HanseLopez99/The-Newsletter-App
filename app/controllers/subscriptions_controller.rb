@@ -3,8 +3,9 @@ class SubscriptionsController < ApplicationController
 
   # GET /subscriptions or /subscriptions.json
   def index
-    # Get the newsletters which the current user is subscribed to
-    @subscriptions = Subscription.joins(:newsletter).where(newsletters: { user_id: current_user.id }).select(:id, :newsletter_id, :user_id, :name)
+    @subscriptions = Subscription.where(user_id: current_user.id)
+    @user = current_user
+    @newsletters = Newsletter.all
   end
 
   # GET /subscriptions/1 or /subscriptions/1.json
@@ -19,6 +20,14 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new
     @newsletters = Newsletter.all
     @user = current_user
+  end
+
+  # Get /subscriptions/new/1
+  def precreated_subscription
+    # Create a new subscription with the newsletter_id from the URL for the current user
+    @newsletters = Newsletter.find(params[:id])
+    @user = current_user
+    @subscription = Subscription.create(newsletter_id: params[:id], user_id: current_user.id)
   end
 
   # GET /subscriptions/1/edit

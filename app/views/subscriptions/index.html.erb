@@ -8,9 +8,8 @@
 
         <div id="subscriptions">
           <% @subscriptions.each do |subscription| %>
-            <p>
-              <%= link_to subscription.name, subscription %>
-            </p>
+            <%= " Subscribed to: #{Newsletter.find_by(id:subscription.newsletter_id).name}" %>
+            <br>
           <% end %>
         </div>
         <hr>

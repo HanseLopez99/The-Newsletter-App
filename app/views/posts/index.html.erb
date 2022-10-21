@@ -1,16 +1,23 @@
-<h1>Posts</h1>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <p>
-      <br>
-      <%= image_tag post.image.variant(resize_to_fill: [300, 300]) if post.image.attached? %>
-      <br>
-      <%= link_to post.description, post_path(post) %>
-      <br>
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow">
+    <div class="card-header">
+      <h1>Posts</h1>
+    </div>
+    <div class="card-body">
+      <div id="posts">
+        <% @posts.each do |post| %>
+          <p>
+            <br>
+            <%= image_tag post.image.variant(resize_to_fill: [300, 300]) if post.image.attached? %>
+            <br>
+            <%= link_to post.description, post_path(post) %>
+            <br>
+            <hr>
+          </p>
+        <% end %>
+      </div>
       <hr>
-    </p>
-  <% end %>
+      <%= link_to "New post", new_post_path %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New post", new_post_path %>

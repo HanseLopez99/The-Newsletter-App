@@ -9,20 +9,29 @@ class SubscriptionsController < ApplicationController
 
   # GET /subscriptions/1 or /subscriptions/1.json
   def show
+    @subscription = Subscription.find(params[:id])
+    @user = current_user
+    @newsletters = Newsletter.all
   end
 
   # GET /subscriptions/new
   def new
     @subscription = Subscription.new
+    @newsletters = Newsletter.all
+    @user = current_user
   end
 
   # GET /subscriptions/1/edit
   def edit
+    @subscription = Subscription.find(params[:id])
+    @newsletters = Newsletter.all
   end
 
   # POST /subscriptions or /subscriptions.json
   def create
     @subscription = Subscription.new(subscription_params)
+    @newsletters = Newsletter.all
+    @user = current_user
 
     respond_to do |format|
       if @subscription.save

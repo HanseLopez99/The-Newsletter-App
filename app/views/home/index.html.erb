@@ -1,12 +1,20 @@
 
-<h2> Posts from newsletters you may be interested in </h2>
-<% @posts.each do |post| %> 
-  <div>
-    <br>
-    <%= image_tag post.image.variant(resize_to_fill: [300, 300]) if post.image.attached? %>
-    <br>
-    <%= link_to post.description, post_path(post) %>
-    <br>
-    <hr>
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow">
+    <div class="card-header">
+      <h2> Posts from newsletters you may be interested in </h2>
+    </div>
+    <div class="card-body">
+      <% @posts.each do |post| %> 
+        <div>
+          <br>
+          <%= image_tag post.image.variant(resize_to_fill: [300, 300]) if post.image.attached? %>
+          <br>
+          <%= link_to post.description, post_path(post) %>
+          <br>
+          <hr>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

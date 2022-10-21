@@ -1,8 +1,20 @@
-<%= render @subscription %>
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow">
+    <div class="card-header">
+      <h1> Congratulations on your new subscription! </h1>
+    </div>
+    <div class="card-body">
 
-<div>
-  <%= link_to "Edit this subscription", edit_subscription_path(@subscription) %> |
-  <%= link_to "Back to subscriptions", subscriptions_path %>
+      <%= " Subscribed to: #{Newsletter.find_by(id:@subscription.newsletter_id).name}" %>
+      <br>
+      <%= " User: #{@user.first_name}" %>
 
-  <%= button_to "Destroy this subscription", @subscription, method: :delete %>
+      <div>
+        <%= link_to "Edit this subscription", edit_subscription_path(@subscription) %> |
+        <%= link_to "Back to subscriptions", subscriptions_path %>
+
+        <%= button_to "Destroy this subscription", @subscription, method: :delete %>
+      </div>
+    </div>
+  </div>
 </div>

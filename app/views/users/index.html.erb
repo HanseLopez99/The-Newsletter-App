@@ -1,14 +1,23 @@
-<h1>Users</h1>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow">
+    <div class="card-header">
+      <h1>Users</h1>
+    </div>
+    <div class="card-body">
 
-    <%= image_tag user.avatar.variant(resize_to_fill: [100, 100]) if user.avatar.attached? %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
+      <div id="users">
+        <% @users.each do |user| %>
+          <%= render user %>
+
+          <%= image_tag user.avatar.variant(resize_to_fill: [100, 100]) if user.avatar.attached? %>
+          <p>
+            <%= link_to "Show this user", user %>
+          </p>
+        <% end %>
+      </div>
+      <hr>
+      <%= link_to "New user", new_user_path %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New user", new_user_path %>

@@ -1,11 +1,21 @@
-<h1>Subscriptions</h1>
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow">
+    <div class="card-header">
+      <h1>Subscriptions</h1>
+    </div>
+    <div class="card-body">
+      <div id="subscriptions">
 
-<div id="subscriptions">
-  <% @subscriptions.each do |subscription| %>
-    <p>
-      <%= link_to subscription.name, subscription %>
-    </p>
-  <% end %>
+        <div id="subscriptions">
+          <% @subscriptions.each do |subscription| %>
+            <p>
+              <%= link_to subscription.name, subscription %>
+            </p>
+          <% end %>
+        </div>
+        <hr>
+        <%= link_to "New subscription", new_subscription_path %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New subscription", new_subscription_path %>

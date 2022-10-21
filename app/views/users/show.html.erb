@@ -1,18 +1,27 @@
 <p style="color: green"></p>
 
-<h1> Your Profile </h1>
-<br>
-<%= image_tag @user.avatar.variant(resize_to_fill: [300, 300]) if @user.avatar.attached? %>
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow">
+    <div class="card-header">
+      <h1> Your Profile </h1>
+    </div>
+    <div class="card-body">
+      
+      <%= image_tag @user.avatar.variant(resize_to_fill: [300, 300]) if @user.avatar.attached? %>
 
-<br>
-<%= "First Name: #{@user.first_name}" %>
-<br>
-<%= "Last Name: #{@user.last_name}" %>
-<br>
-<%= "Email: #{@user.email}" %>
-<br>
-<br>
+      <br>
+      <%= "First Name: #{@user.first_name}" %>
+      <br>
+      <%= "Last Name: #{@user.last_name}" %>
+      <br>
+      <%= "Email: #{@user.email}" %>
+      <br>
+      <br>
 
-<div>
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+      <div>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+      </div>
+      <br>
+    </div>
+  </div>
 </div>

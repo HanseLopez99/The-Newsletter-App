@@ -1,11 +1,21 @@
-<h1>Newsletters</h1>
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow">
+    <div class="card-header">
+      <h1>Newsletters</h1>
+    </div>
+    <div class="card-body">
 
-<div id="newsletters">
-  <% @newsletters.each do |newsletter| %>
-    <p>
-      <%= link_to newsletter.name, newsletter %>
-    </p>
-  <% end %>
+      <div id="newsletters">
+        <% @newsletters.each do |newsletter| %>
+          <p>
+            <%= link_to newsletter.name, newsletter %>
+          </p>
+        <% end %>
+      </div>
+      <hr>
+      <%= link_to "New newsletter", new_newsletter_path %>
+
+    </div>
+  </div>
 </div>
 
-<%= link_to "New newsletter", new_newsletter_path %>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Congratulations! You have created a new post!</h1>
+    <p>
+      <strong>Newsletter:</strong>
+      <%= @post.newsletter.name %>
+    </p>
+    <p>
+      <strong>Content:</strong>
+      <%= @post.description %>
+    </p>
+    <p>
+      <strong>created at:</strong>
+      <%= @post.created_at %>
+    </p>
+  </body>
+</html>

@@ -6,8 +6,8 @@ class User < ApplicationRecord
          :confirmable, :trackable
 
   # Associations
-  has_many :newsletters
-  has_and_belongs_to_many :newsletters
+  has_and_belongs_to_many :newsletters, foreign_key: 'user_id', join_table: 'subscriptions', dependent: :destroy
+  has_many :newsletters, dependent: :destroy
 
   # Validations
   validates :first_name, presence: true

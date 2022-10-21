@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @newsletters = Newsletter.all
+    @newsletters = Newsletter.where(user_id: current_user.id)
   end
 
   # POST /posts or /posts.json

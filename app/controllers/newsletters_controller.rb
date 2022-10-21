@@ -9,6 +9,8 @@ class NewslettersController < ApplicationController
 
   # GET /newsletters/1 or /newsletters/1.json
   def show
+    # Get all the posts from the current newsletter
+    @posts = Post.where(newsletter_id: @newsletter.id)
   end
 
   # GET /newsletters/new

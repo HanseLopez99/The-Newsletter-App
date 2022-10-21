@@ -1,8 +1,28 @@
-<%= render @newsletter %>
+<h1><%= @newsletter.name %></h1>
 
-<div>
-  <%= link_to "Edit this newsletter", edit_newsletter_path(@newsletter) %> |
-  <%= link_to "Back to newsletters", newsletters_path %>
+<br>
+<hr>
 
-  <%= button_to "Destroy this newsletter", @newsletter, method: :delete %>
-</div>
+<%# check if posts is empty %>
+<% if @posts.empty? %>
+  <h3>No posts yet.</h3>
+<% else %>
+  <h3> Posts of this newsletter: </h3>
+  <% @posts.each do |post| %> 
+    <div>
+      <br>
+      <%= image_tag post.image.variant(resize_to_fill: [300, 300]) if post.image.attached? %>
+      <br>
+      <%= link_to post.description, post_path(post) %>
+      <br>
+      <hr>
+    </div>
+  <% end %>
+
+  <div>
+    <%= link_to "Edit this newsletter", edit_newsletter_path(@newsletter) %> |
+    <%= link_to "Back to newsletters", newsletters_path %>
+
+    <%= button_to "Destroy this newsletter", @newsletter, method: :delete %>
+  </div>
+<% end %>

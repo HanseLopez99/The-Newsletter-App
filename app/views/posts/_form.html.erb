@@ -26,6 +26,7 @@
     <%= form.label :newsletter_id, style: "display: block" %>
     <%= form.select :newsletter_id, @newsletters.map { |n| [n.name, n.id] }, { :include_blank => '-- Select One --' }, :required => true %>
   <div>
-    <%= form.submit %>
+    <br>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

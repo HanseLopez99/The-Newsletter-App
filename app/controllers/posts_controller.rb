@@ -15,7 +15,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @newsletters = Newsletter.all
+    # Get only the newsletters from the current user
+    @newsletters = Newsletter.where(user_id: current_user.id)
   end
 
   # GET /posts/1/edit

@@ -14,6 +14,9 @@
 <% @posts.each do |post| %> 
   <div>
     <br>
+    <%= image_tag post.image if post.image.attached? %>
+    <br>
     <%= link_to post.description, post_path(post) %>
+    <br>
   </div>
 <% end %>

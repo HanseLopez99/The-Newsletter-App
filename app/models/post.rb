@@ -6,4 +6,6 @@ class Post < ApplicationRecord
   validates :description, presence: true, length: { maximum: 1000 }
   validates :likes, numericality: { only_integer: true }
   validates :newsletter_id, presence: true
+
+  has_one_attached :image
 end

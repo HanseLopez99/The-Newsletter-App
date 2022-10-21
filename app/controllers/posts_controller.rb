@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @newsletters = Newsletter.all
   end
 
   # POST /posts or /posts.json
@@ -67,6 +68,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:description, :likes, :newsletter_id)
+      params.require(:post).permit(:description, :likes, :newsletter_id, :image)
     end
 end

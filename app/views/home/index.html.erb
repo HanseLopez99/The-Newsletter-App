@@ -1,22 +1,12 @@
-<div>
-  <br>
-  <%= link_to "My Newsletters", newsletters_path %>
-</div>
-<div>
-  <br>
-  <%= link_to "My Subscriptions", subscriptions_path %>
-</div>
-<div>
-  <br>
-  <%= link_to "Create a Post", new_post_path %>
-</div>
+
 <h2> Posts from newsletters you may be interested in </h2>
 <% @posts.each do |post| %> 
   <div>
     <br>
-    <%= image_tag post.image if post.image.attached? %>
+    <%= image_tag post.image.variant(resize_to_fill: [300, 300]) if post.image.attached? %>
     <br>
     <%= link_to post.description, post_path(post) %>
     <br>
+    <hr>
   </div>
 <% end %>

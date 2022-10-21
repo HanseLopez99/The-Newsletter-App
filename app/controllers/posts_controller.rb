@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    # Get the newsletter name from the current post
+    @newsletter = Newsletter.find(@post.newsletter_id)
   end
 
   # GET /posts/new

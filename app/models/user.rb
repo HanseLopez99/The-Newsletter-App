@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :newsletters, foreign_key: 'user_id', join_table: 'subscriptions', dependent: :destroy
   has_many :newsletters, dependent: :destroy
 
+  has_one_attached :avatar
+
   # Validations
   validates :first_name, presence: true
   validates :last_name, presence: true

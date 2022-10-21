@@ -2,9 +2,13 @@
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
     <p>
-      <%= link_to "Show this post", post %>
+      <br>
+      <%= image_tag post.image.variant(resize_to_fill: [300, 300]) if post.image.attached? %>
+      <br>
+      <%= link_to post.description, post_path(post) %>
+      <br>
+      <hr>
     </p>
   <% end %>
 </div>

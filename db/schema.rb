@@ -53,18 +53,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_090108) do
   create_table "posts", force: :cascade do |t|
     t.string "description"
     t.integer "likes", default: 0
-    t.bigint "newsletters_id", null: false
+    t.bigint "newsletter_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["newsletters_id"], name: "index_posts_on_newsletters_id"
+    t.index ["newsletter_id"], name: "index_posts_on_newsletter_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.bigint "newsletters_id", null: false
+    t.bigint "newsletter_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["newsletters_id"], name: "index_subscriptions_on_newsletters_id"
+    t.index ["newsletter_id"], name: "index_subscriptions_on_newsletter_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
@@ -95,7 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_090108) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "newsletters", "users"
-  add_foreign_key "posts", "newsletters", column: "newsletters_id"
-  add_foreign_key "subscriptions", "newsletters", column: "newsletters_id"
+  add_foreign_key "posts", "newsletters"
+  add_foreign_key "subscriptions", "newsletters"
   add_foreign_key "subscriptions", "users"
 end
